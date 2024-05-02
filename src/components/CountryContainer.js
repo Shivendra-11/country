@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Data from '../Data'
 import CountryCard from './CountryCard';
-const CountryContainer = () => {
-    console.log(Data)
-  
+const CountryContainer = ({query}) =>
+  {
+
+
+
+
 return (
+  <>
     <div className='countries-container' >
-         {Data.map((country) => {
+        { Data.filter((country)=> country.name.common.toLowerCase().includes(query)).map((country) => {
         return (
           <CountryCard
             key={country.name.common}
@@ -18,7 +22,9 @@ return (
           />
         )
       })}
+    
     </div>
+  </> 
   )
 }
 export default CountryContainer;
